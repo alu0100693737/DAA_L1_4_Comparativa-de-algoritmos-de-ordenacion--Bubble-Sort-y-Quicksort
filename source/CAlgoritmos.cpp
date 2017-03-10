@@ -1,4 +1,14 @@
-#include "CAlgoritmos.h"
+///////////////////////////////////////////////////////////////
+//  COrdenacion.cpp - Implementación de la clase COrdenacion //
+//                                                           //
+//      Autores: Javier Alberto Martín                       //
+//               Iván García Campos                          //
+//               Eduardo Escobar Alberto                     //
+//                                                           //
+//               Fecha: 10/03/2017                           //
+///////////////////////////////////////////////////////////////
+
+#include "COrdenacion.h"
 
 //poliformismos validos
 
@@ -6,11 +16,10 @@
 #include <sys/time.h>
 #include <time.h>
 #include <stdlib.h>
-#include<stdio.h>
-using namespace std;
+#include <stdio.h>
 
 //numeros entre -10000 y 10000
-CAlgoritmos::CAlgoritmos(int size) {
+COrdenacion::COrdenacion(int size) {
     
     size_ = size;
     vector_ = new int[size_];
@@ -21,39 +30,37 @@ CAlgoritmos::CAlgoritmos(int size) {
     show();
 }
 
-CAlgoritmos::CAlgoritmos(int* vec, int siz) {
+COrdenacion::COrdenacion(int* vec, int siz) {
     size_ = siz;
     vector_ = vec;
 }
 
-CAlgoritmos::~CAlgoritmos() { 
+COrdenacion::~COrdenacion() { 
     //delete vector
 }
 
-int CAlgoritmos::getDataVector(int pos) {
+int COrdenacion::getDataVector(int pos) {
     return vector_[pos];
 }
 
-int CAlgoritmos::getSize() {
+int COrdenacion::getSize() {
     return size_;
 }
 
-int* CAlgoritmos::getVector() {
+int* COrdenacion::getVector() {
     return vector_;
 }
 
-void CAlgoritmos::setDataVector(int pos, int valor) {
+void COrdenacion::setDataVector(int pos, int valor) {
     vector_[pos] = valor;
 }
 
-void CAlgoritmos::setVector(int* nuevovector) {
-
-    for(int i = 0; i< getSize(); i++)
+void COrdenacion::setVector(int* nuevovector) {
+    for(int i = 0; i < getSize(); i++)
         vector_[i] = nuevovector[i];
 }
 
-void CAlgoritmos::show() {
-    
+void COrdenacion::show() {
     cout << "\t\t";
     for(int i = 0; i < getSize(); i++)
         cout << getDataVector(i) << " | ";
@@ -61,7 +68,7 @@ void CAlgoritmos::show() {
 }
 
 //el tamaño será el mismo que el vector original
-void CAlgoritmos::show(int* vec, int size) {
+void COrdenacion::show(int* vec, int size) {
     cout <<"\t\t";
     for (int i = 0; i< size; i++) 
         cout << vec[i] << " | ";
@@ -69,6 +76,4 @@ void CAlgoritmos::show(int* vec, int size) {
 }
 
 //Ordenaciones sin definir en el padre
-void CAlgoritmos::ordenacion(bool) {}
-
-    
+void COrdenacion::ordenacion(bool) {}

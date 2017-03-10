@@ -1,14 +1,23 @@
+///////////////////////////////////////////////////////////////
+//  CQuickSort.cpp - Implementación de la clase CQuickSort   //
+//                                                           //
+//      Autores: Javier Alberto Martín                       //
+//               Iván García Campos                          //
+//               Eduardo Escobar Alberto                     //
+//                                                           //
+//               Fecha: 10/03/2017                           //
+///////////////////////////////////////////////////////////////
+
 #include "CQuickSort.h"
 #include <iostream>
-using namespace std;
 
-CQuickSort::CQuickSort(int* vec, int tam) : CAlgoritmos(vec,tam) {}
+CQuickSort::CQuickSort(int* vec, int tam) : COrdenacion(vec,tam) {}
 
-CQuickSort::CQuickSort(int tam) : CAlgoritmos(tam) {}
+CQuickSort::CQuickSort(int tam) : COrdenacion(tam) {}
 
 CQuickSort::~CQuickSort() {}
 
-void CQuickSort::ordenacion(bool a) {
+void CQuickSort::ordenacion(bool mostrar) {
     int* copia = new int[getSize()];
     int* resultado = new int[getSize()];
     
@@ -19,7 +28,7 @@ void CQuickSort::ordenacion(bool a) {
     for(int i = 0; i < getSize(); i++) 
         resultado[i] = getDataVector(i);
     
-    if(a)
+    if(mostrar)
         show(resultado, getSize());
     
     //Devolvemos los valores originales al vector
@@ -33,12 +42,12 @@ void CQuickSort::quicksort(int ini, int fin) {
     int p = getDataVector((i + f )/2);
 
     while(i < f){
-        while(getDataVector(i)< p){
+        while(getDataVector(i) < p)
             i++;
-        }
-        while(getDataVector(f) > p){
+
+        while(getDataVector(f) > p)
             f--;
-        }
+
         if (i <= f){
             aux= getDataVector(i);
             setDataVector(i, getDataVector(f));
@@ -49,7 +58,7 @@ void CQuickSort::quicksort(int ini, int fin) {
     }
 
     if (ini < f)
-        quicksort(ini,f);
-    if (i< fin)
-        quicksort(i,fin);
+        quicksort(ini, f);
+    if (i < fin)
+        quicksort(i, fin);
 }

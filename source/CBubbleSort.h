@@ -1,33 +1,48 @@
-/** Primera pasada:
-{9,21,4,40,10,35} --> {9,21,4,40,10,35} (no se realiza intercambio)
-{9,21,4,40,10,35} --> {9,4,21,40,10,35} (intercambio entre el 21 y el 4)
-{9,4,21,40,10,35} --> {9,4,21,40,10,35} (no se realiza intercambio)
-{9,4,21,40,10,35} --> {9,4,21,10,40,35} (intercambio entre el 40 y el 10)
-{9,4,21,10,40,35} --> {9,4,21,10,35,40} (intercambio entre el 40 y el 35)
-Segunda pasada:
-{9,4,21,10,35,40} --> {4,9,21,10,35,40} (intercambio entre el 9 y el 4)
-{4,9,21,10,35,40} --> {4,9,21,10,35,40} (no se realiza intercambio)
-{4,9,21,10,35,40} --> {4,9,10,21,35,40} (intercambio entre el 21 y el 10)
-Aunque el array ya está ordenado se harían otras 3 pasadas más
-{4,9,10,21,35,40} --> {4,9,10,21,35,40} (no se realiza intercambio)
-{4,9,21,10,35,40} --> {4,9,10,21,35,40} (no se realiza intercambio) */
+///////////////////////////////////////////////////////////////
+//    CBubbleSort.h - Declaración de la clase CBubbleSort    //
+//                                                           //
+//      Autores: Javier Alberto Martín                       //
+//               Iván García Campos                          //
+//               Eduardo Escobar Alberto                     //
+//                                                           //
+//               Fecha: 10/03/2017                           //
+///////////////////////////////////////////////////////////////
 
 #ifndef _CBUBBLE_H
 #define _CBUBBLE_H
 
-#include "CAlgoritmos.h"
+#include "COrdenacion.h"
 #include <iostream>
 
 using namespace std;
 
-class CBubbleSort : public CAlgoritmos {
-private:
+/**Clase heredada de 'COrdenacion' que concreta el caso del algoritmo "Bubble Sort" para la ordenación de un vector de números*/
+class CBubbleSort : public COrdenacion {
 public:
-    CBubbleSort(int);
-    CBubbleSort(int*, int);
+    /**
+	 * @brief Constructor que asigna valores aleatorios entre -10000 y 10000
+	 * @param size Tamaño del vector
+	 */
+    CBubbleSort(int size);
+    /**
+	 * @brief Constructor con valores ya introducidos por teclado
+	 * @param vector Vector a ordenar
+	 * @param size Tamaño del vector
+	 */
+    CBubbleSort(int* vector, int size);
+    /**
+	 * @brief Destructor
+	 */
     ~CBubbleSort();
-    void ordenacion(bool);
-    
-    int* bubble();
+    /**
+	 * @brief Método que copia el vector para no perderlo y llama a bubble
+	 * @param debug Muestra el vector si está a 1
+	 */
+    void ordenacion(bool debug);
+    /**
+	 * @brief Método principal que realiza el algoritmo Bubble Sort
+	 */
+    void bubble();
 };
+
 #endif
