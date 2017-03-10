@@ -70,8 +70,9 @@ void COrdenacion::show() {
 //el tamaño será el mismo que el vector original
 void COrdenacion::show(int* vec, int size) {
     cout <<"\t\t";
-    for (int i = 0; i< size; i++) 
+    for (int i = 0; i < size; i++)
         cout << vec[i] << " | ";
+        
     cout << endl << endl;
 }
 

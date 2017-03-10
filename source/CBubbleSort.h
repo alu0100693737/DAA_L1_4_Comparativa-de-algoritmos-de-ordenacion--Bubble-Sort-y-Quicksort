@@ -41,8 +41,9 @@ public:
     void ordenacion(bool debug);
     /**
 	 * @brief Método principal que realiza el algoritmo Bubble Sort
+	 * @return Vector ordenado
 	 */
-    void bubble();
+    int* bubble();
 };
 
 #endif

@@ -29,10 +29,12 @@ void CBubbleSort::ordenacion(bool mostrar) {
         show(resultado, getSize());
 
     //Devolvemos los valores originales al vector
+
     setVector(copia);
+
 }
 
-void CBubbleSort::bubble() {
+int* CBubbleSort::bubble() {
     int i, j, flag = 1;                                     // flag = 1 para empezar primera etapa
     int aux;
     for(i = 1; (i <= getSize()) && flag; i++) {
@@ -46,4 +48,5 @@ void CBubbleSort::bubble() {
             }
         }
     }
+    return getVector();
 }
